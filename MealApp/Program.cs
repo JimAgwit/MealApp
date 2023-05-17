@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IGetMealCategoryInterface, GetMealCategoryService>();
 builder.Services.AddScoped<ISearchMealByNameInterface, SearchMealByNameService>();
+builder.Services.AddScoped<IGetRandomMealInterface, GetRandomMealService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("MealDbClient", client =>

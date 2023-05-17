@@ -9,15 +9,23 @@ namespace MealApp.Controllers
     public class MealController : ControllerBase
     {
         private readonly ISearchMealByNameInterface _searchByMealName;
-        public MealController(ISearchMealByNameInterface searchByMealName)
+        private readonly IGetRandomMealInterface _randomMeal;
+        public MealController(ISearchMealByNameInterface searchByMealName, IGetRandomMealInterface randomMeal)
         {
             _searchByMealName = searchByMealName;
+            _randomMeal = randomMeal;
         }
 
         [HttpGet("searchMealByName")]
         public async Task<IActionResult> SearchMealByName(string mealName)
         {
             var meals = await _searchByMealName.SearchMealByName(mealName);
+            return Ok(meals);
+        }
+        [HttpGet("getRandomMeal")]
+        public async Task<IActionResult> GetRandomMeal()
+        {
+            var meals = await _randomMeal.GetRandomMeal();
             return Ok(meals);
         }
     }

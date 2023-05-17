@@ -1,34 +1,34 @@
 ﻿using MealApp.Models;
 using MealApp.Services.Interface;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace MealApp.Services
 {
-    public class GetMealCategoryService : IGetMealCategoryInterface
+    public class GetRandomMealService : IGetRandomMealInterface
     {
         private readonly ILogger<GetMealCategoryService> _logger;
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
-        public GetMealCategoryService(HttpClient httpClient, ILogger<GetMealCategoryService> logger, IConfiguration configuration)
+        public GetRandomMealService(HttpClient httpClient, ILogger<GetMealCategoryService> logger, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _logger = logger;
             _configuration = configuration;
         }
-        public async Task<CategoryList> GetMealCategorty()
+        public async Task<MealSearchResponse> GetRandomMeal()
         {
             try
             {
-                var urlExtension = "categories.php";
+                var urlExtension = "random.php";
                 var apiUrl = _configuration.GetValue<string>("MealDbUrl") + urlExtension;
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
 
                 var content = await response.Content.ReadAsStringAsync();
-                var categories = JsonConvert.DeserializeObject<CategoryList>(content);
-                return categories;
+                var randomMeal = JsonConvert.DeserializeObject<MealSearchResponse>(content);
+                return randomMeal;
             }
             catch (Exception ex)
             {
@@ -36,6 +36,5 @@ namespace MealApp.Services
                 throw;
             }
         }
-
     }
 }
