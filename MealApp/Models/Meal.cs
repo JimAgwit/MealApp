@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MealApp.Models
 {
@@ -9,43 +10,18 @@ namespace MealApp.Models
 
     public class Meal
     {
-        [JsonProperty("idMeal")]
-        public string Id { get; set; }
-
-        [JsonProperty("strMeal")]
-        public string Name { get; set; }
-
-        [JsonProperty("strCategory")]
-        public string Category { get; set; }
-
-        [JsonProperty("strArea")]
-        public string Area { get; set; }
-
-        [JsonProperty("strInstructions")]
-        public string Instructions { get; set; }
-
-        [JsonProperty("strMealThumb")]
-        public string ThumbnailUrl { get; set; }
-
-        [JsonProperty("strTags")]
-        public string Tags { get; set; }
-
-        [JsonProperty("strYoutube")]
-        public string YoutubeUrl { get; set; }
-
-        [JsonProperty("strSource")]
-        public string Source { get; set; }
-
-        [JsonProperty("strImageSource")]
-        public string ImageSource { get; set; }
-
-        [JsonProperty("strCreativeCommonsConfirmed")]
-        public string CreativeCommonsConfirmed { get; set; }
-
-        [JsonProperty("dateModified")]
+        public string IdMeal { get; set; }
+        public string StrMeal { get; set; }
+        public string StrDrinkAlternate { get; set; }
+        public string StrCategory { get; set; }
+        public string StrArea { get; set; }
+        public string StrInstructions { get; set; }
+        public string StrMealThumb { get; set; }
+        public string StrTags { get; set; }
+        public string StrYoutube { get; set; }
+        public string StrSource { get; set; }
+        public string StrImageSource { get; set; }
+        public string StrCreativeCommonsConfirmed { get; set; }
         public string DateModified { get; set; }
-
-        public Dictionary<string, string> Ingredients { get; set; }
-        public List<string> Measures { get; set; }
     }
 }
