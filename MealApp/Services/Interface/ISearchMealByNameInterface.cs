@@ -4,6 +4,6 @@ namespace MealApp.Services.Interface
 {
     public interface ISearchMealByNameInterface
     {
-        Task<Meal> SearchMealByName();
+        Task<MealSearchResponse> SearchMealByName(string mealName);
     }
 }

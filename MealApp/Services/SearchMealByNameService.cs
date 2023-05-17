@@ -18,21 +18,26 @@ namespace MealApp.Services
             _logger = logger;
             _configuration = configuration;
         }
-        public Task<Meal> SearchMealByName()
+        public async Task<MealSearchResponse> SearchMealByName(string mealName)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                string apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
-                string json = await client.GetStringAsync(apiUrl);
+                var urlExtension = "search.php?s=";
+                var apiUrl = _configuration.GetValue<string>("MealDbUrl") + urlExtension + mealName;
+                var response = await _httpClient.GetAsync(apiUrl);
+                response.EnsureSuccessStatusCode();
 
-                // Deserialize the JSON response
-                MealSearchResponse response = JsonConvert.DeserializeObject<MealSearchResponse>(json);
-
-                // Access the search results
-                List<Meal> meals = response.Meals;
-
-                // Do something with the meals
+                var content = await response.Content.ReadAsStringAsync();
+                var meals = JsonConvert.DeserializeObject<MealSearchResponse>(content);
+                return meals;
             }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occured with the description: ", ex);
+                throw;
+            }
+
         }
+
     }
 }

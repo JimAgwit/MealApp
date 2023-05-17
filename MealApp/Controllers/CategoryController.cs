@@ -10,7 +10,7 @@ namespace MealApp.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-      private readonly IGetMealCategoryInterface _mealService;
+        private readonly IGetMealCategoryInterface _mealService;
         public CategoryController(IGetMealCategoryInterface mealService)
         {
             _mealService = mealService;
@@ -19,7 +19,7 @@ namespace MealApp.Controllers
         [HttpGet("getMealCategories")]
         public async Task<IActionResult> GetMealCategories()
         {
-            var category= await _mealService.GetMealCategorty();
+            var category = await _mealService.GetMealCategorty();
             return Ok(category);
         }
     }

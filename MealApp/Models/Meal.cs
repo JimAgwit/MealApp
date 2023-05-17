@@ -45,7 +45,7 @@ namespace MealApp.Models
         [JsonProperty("dateModified")]
         public string DateModified { get; set; }
 
-        public List<string> Ingredients { get; set; }
+        public Dictionary<string, string> Ingredients { get; set; }
         public List<string> Measures { get; set; }
     }
 }
