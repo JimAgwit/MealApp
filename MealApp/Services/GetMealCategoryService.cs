@@ -10,19 +10,24 @@ namespace MealApp.Services
     {
         private readonly ILogger<GetMealCategoryService> _logger;
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
+       
 
-        public GetMealCategoryService(HttpClient httpClient, ILogger<GetMealCategoryService> logger)
+        public GetMealCategoryService(HttpClient httpClient, ILogger<GetMealCategoryService> logger, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _logger = logger;
+            _configuration = configuration;
+
         }
 
         public async Task<CategoryList> GetMealCategorty()
         {
-            var apiUrl = "https://www.themealdb.com/api/json/v1/1/categories.php";
+            
 
             try
             {
+                var apiUrl = _configuration.GetValue<string>("MealDbUrl");
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
 
