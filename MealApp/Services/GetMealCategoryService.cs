@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 
 namespace MealApp.Services
 {
-    public class GetMealCategoryService : IMealServiceInterface
+    public class GetMealCategoryService : IGetMealCategoryInterface
     {
         private readonly ILogger<GetMealCategoryService> _logger;
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
-       
+
 
         public GetMealCategoryService(HttpClient httpClient, ILogger<GetMealCategoryService> logger, IConfiguration configuration)
         {
@@ -23,11 +23,10 @@ namespace MealApp.Services
 
         public async Task<CategoryList> GetMealCategorty()
         {
-            
-
             try
             {
-                var apiUrl = _configuration.GetValue<string>("MealDbUrl");
+                var urlExtension = "categories.php";
+                var apiUrl = _configuration.GetValue<string>("MealDbUrl") + urlExtension;
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
 
@@ -40,9 +39,7 @@ namespace MealApp.Services
                 _logger.LogError("An error occured with the description: ", ex);
                 throw;
             }
-        
         }
 
-     
     }
 }

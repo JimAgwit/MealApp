@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IMealServiceInterface, GetMealCategoryService>();
+builder.Services.AddScoped<IGetMealCategoryInterface, GetMealCategoryService>();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("MealDbClient", client =>
 {

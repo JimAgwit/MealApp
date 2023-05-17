@@ -2,7 +2,7 @@
 
 namespace MealApp.Services.Interface
 {
-    public interface IMealServiceInterface
+    public interface IGetMealCategoryInterface
     {
         Task<CategoryList> GetMealCategorty();
     }
