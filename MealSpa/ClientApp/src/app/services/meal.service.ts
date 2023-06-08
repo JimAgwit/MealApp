@@ -13,10 +13,6 @@ export class MealService {
 
   constructor(private http: HttpClient) {}
 
-  public getMeals(): Observable<Meal[]> {
-    return this.http.get<Meal[]>(`${environment.apiUrl}/${this.url}`);
-  }
-
   public getRandomMeal(): Observable<any> {
     const apiUrl = environment.apiUrl;
     return this.http.get(apiUrl);

@@ -14,14 +14,14 @@ export class AppComponent {
 
   constructor(private mealService : MealService){}
 
-  ngOnInt() : void{
-    this.mealService.getMeals().subscribe((result: Meal[])=>(this.meals=result));
-  }
+
   getRandomMeal() {
     this.mealService.getRandomMeal().subscribe(
       (response) => {
+      
         // Process the response data
         console.log(response); // You can do whatever you want with the data here
+        this.meals = response.meals;
       },
       (error) => {
         // Handle any errors
