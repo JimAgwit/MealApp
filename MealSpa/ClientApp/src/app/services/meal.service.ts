@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Meal } from '../models/meal';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MealService {
+  private url = 'mealUrl';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  public getMeals() : Meal[]{
-    let mealOne = new Meal;
-    mealOne.IdMeal = 123;
-    mealOne.StrMeal = "Pork Adobo";
+  public getMeals(): Observable<Meal[]> {
+    return this.http.get<Meal[]>(`${environment.apiUrl}/${this.url}`);
+  }
 
-    return [mealOne];
-
+  public getRandomMeal(): Observable<any> {
+    const apiUrl = environment.apiUrl;
+    return this.http.get(apiUrl);
   }
 }

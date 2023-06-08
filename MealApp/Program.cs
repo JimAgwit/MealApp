@@ -1,8 +1,6 @@
 using MealApp.Services;
 using MealApp.Services.Interface;
-using Microsoft.AspNetCore.Hosting;
-using Serilog;
-using Serilog.Events;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGetMealCategoryInterface, GetMealCategoryService>();
 builder.Services.AddScoped<ISearchMealByNameInterface, SearchMealByNameService>();
 builder.Services.AddScoped<IGetRandomMealInterface, GetRandomMealService>();
+builder.Services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("MealDbClient", client =>
@@ -44,10 +43,12 @@ Host.CreateDefaultBuilder(args)
 //allowing cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowOrigin",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:4200") // Replace with your Angular development server URL
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
 });
 
 var app = builder.Build();
@@ -58,8 +59,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors();
 app.UseHttpsRedirection();
 app.MapControllers();
+//app.UseSpa(spa =>
+//{
+//    spa.Options.SourcePath = "ClientApp";
+//    if (app.Environment.IsDevelopment())
+//    {
+//        spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+//    }
+//});
 
 app.Run();

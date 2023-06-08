@@ -1,15 +1,16 @@
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Meal</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let meal of meals">
-        <td>{{ meal.IdMeal }}</td>
-        <td>{{ meal.StrMeal }}</td>
-    </tr>
-    
+<h2>{{ title }}</h2>
 
-    
-  </tbody>
-</table>
+<button (click)="getRandomMeal()">Load Meals</button>
+
+<!-- <div *ngIf="meals.length > 0">
+  <h2>{{ meals[0].strMeal }}</h2>
+  <img [src]="meals[0].strMealThumb" alt="Meal Image">
+  <p>{{ meals[0].strInstructions }}</p>
+  <a [href]="meals[0].strSource">Recipe Source</a>
+  <a [href]="meals[0].strYoutube">YouTube Tutorial</a>
+</div> -->
+
+
+
+
+
