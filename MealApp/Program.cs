@@ -65,9 +65,10 @@ app.MapControllers();
 //app.UseSpa(spa =>
 //{
 //    spa.Options.SourcePath = "ClientApp";
+
 //    if (app.Environment.IsDevelopment())
 //    {
-//        spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+//        spa.UseAngularCliServer(npmScript: "start");
 //    }
 //});
 
