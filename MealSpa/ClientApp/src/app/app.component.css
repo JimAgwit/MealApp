@@ -1,55 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 html {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 .container {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.4fr 0.8fr 0.2fr 0.7fr 0.4fr;
-  grid-template-rows: 1fr 5fr 1.5fr 2fr 1fr 
-                      1.2fr 6fr 1fr 3fr;                     
+  grid-template-rows:
+    1fr 3fr 5fr 1.5fr 2fr 1fr
+    1.2fr 6fr 1fr 3fr;
   grid-template-areas:
-    "nav nav nav nav nav"
+    "navLeft nav nav nav navRight"
+    "left topSpace topSpace topSpace right"
     "left titleText titleText imageHolder right"
     "left buttons buttons imageHolder right"
     "left mealName mealName imageHolder right"
     "left tags tags imageHolder right"
     "left insTitle insTitle insTitle right"
     "left insText insText insText right"
-    "left visitSourceButton visitSourceButton visitSourceButton right"
-    "left footer footer footer right"
-    ;
-  grid-gap: 0.2rem;
+    "left visitSource visitSource visitSource right"
+    "left footer footer footer right";
+  /* grid-gap: 0.2rem; */
   font-weight: 800;
   font-size: 12px;
   color: #1b1e1c;
   text-align: left;
-  font-family: 'Rubik', sans-serif;
-
+  font-family: "Rubik", sans-serif;
 }
 
-.buttonGeneral{
-  background-color: #a4a4a4; /* Green */
-  height: 2rem;
-  width: 8rem;
-  border-radius: 50px;
+#bulletList{
+  list-style-type: none;
+  padding: 0;
 }
-#mealNameText{
-  font-size: 1.6rem;
+
+#bulletList li {
+  display: inline-block;
+  margin-right: 10px;
 }
-#mealImage {
+
+#bulletList li::before {
+  content: "•";
+  margin-right: 5px;
+}
+
+.buttonGeneral {
+  align-items: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.buttonGeneral:hover,
+.buttonGeneral:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.buttonGeneral:hover {
+  transform: translateY(-1px);
+}
+
+.buttonGeneral:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+#newMealButton {
+  background-color: #F9B20E;
+  font-weight: bold;
+}
+#watchButton {
+  background-color: #cecece;
+  font-weight: bold;
+}
+#watchButton a {
+  display: block;
   width: 100%;
   height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
-#randomMealText{
-  font-size: 1.6rem;
+.foot {
+ font-size: 0.8rem;
+ text-align: center;
+font-weight: normal;
+}
+#visitSourceButton {
+  background-color: #151010;
+  font-weight: bold;
   color:white;
 }
-#mainText{
+#visitSourceButton a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+#instructionTitleText {
+  font-size: 0.9rem;
+  color: #EB8526;
+}
+#mealNameText {
+  font-size: 1.6rem;
+  color: #EB8526;
+}
+#mealImage {
+  width: 80%;
+  height: 100%;
+  border-radius: 20px;
+}
+#randomMealText {
+  font-size: 1.6rem;
+  color: white;
+}
+#mainText {
   font-size: 3rem;
-  color:rgb(59, 59, 59);
-  font-weight:bold;
+  color: rgb(59, 59, 59);
+  font-weight: 900;
 }
 footer {
   background: #ffffff;
@@ -57,9 +147,9 @@ footer {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
-#visitSourceButton {
+#visitSource {
   background: #ffffff;
-  grid-area: visitSourceButton;
+  grid-area: visitSource;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
@@ -69,6 +159,25 @@ footer {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
+#topSpace {
+  background: #ffffff;
+  grid-area: topSpace;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#navRight {
+  background: #EB8526;
+  grid-area: navRight;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#navLeft {
+  background: #EB8526;
+  grid-area: navLeft;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+
 #insTitle {
   background: #ffffff;
   grid-area: insTitle;
@@ -118,10 +227,9 @@ footer {
   padding-top: var(--main-padding);
 }
 nav {
-  background: #EB8526;
+  background: #eb8526;
   grid-area: nav;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
 }
-

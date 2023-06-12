@@ -6,6 +6,9 @@
   <nav><h2 id="randomMealText">Random Meal</h2></nav>
   <div id="right"></div>
   <div id="left"></div>
+  <div id="navRight"></div>
+  <div id="navLeft"></div>
+  <div id="topSpace"></div>
   <div id="titleText">
     <h2 id="mainText">Generate a meal for your next recipe</h2>
   </div>
@@ -17,8 +20,8 @@
     />
   </div>
   <div id="buttons">
-    <button (click)="getRandomMeal()" id="generateMealButton" class="buttonGeneral">
-      Generate Meal
+    <button (click)="getRandomMeal()" id="newMealButton" class="buttonGeneral">
+      New Meal
     </button>
     <button id="watchButton" class="buttonGeneral">
       <a href="{{ meal.strYoutube }}">Watch Video</a>
@@ -28,20 +31,20 @@
     <h2 id="mealNameText">{{ meal.strMeal }}</h2>
   </div>
   <div id="tags">
-    <h3 id="tagsText">Category: {{ meal.strCategory }}</h3>
-    <h3 id="tagsText">Area: {{ meal.strArea }}</h3>
+    <ul id="bulletList">
+      <li >{{ meal.strCategory }}</li>
+      <li >{{ meal.strArea }}</li>
+    </ul> 
   </div>
   <div id="insTitle"><h3 id="instructionTitleText">Instructions</h3></div>
   <div id="insText">
     <p id="instructionParagraphText">{{ meal.strInstructions }}</p>
   </div>
-  <div id="visitSourceButton">
-    <button id="visitSourceButton">
-      <a href="{{ meal.strSource }}">Source</a>
-    </button>
+  <div id="visitSource">
+      <a href="{{ meal.strSource }}">Visit Source</a>
   </div>
   <footer>
-    <h3 id="footerText">Powered by: The Meal DB.</h3>
-    <h3 id="footerText">All rights reserved 2023</h3>
+    <h3 id="footerText" class="foot">Powered by: The Meal DB.</h3>
+    <h3 id="footerText" class="foot">All rights reserved 2023</h3>
   </footer>
 </div>
