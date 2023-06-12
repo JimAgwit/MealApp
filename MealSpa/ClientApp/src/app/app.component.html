@@ -1,61 +1,47 @@
-
-<button (click)="getRandomMeal()">Get Random Meal</button>
-
-<!-- <div *ngFor="let meal of meals">
-  <h2>{{ meal.strMeal }}</h2>
-  <img src="{{ meal.strMealThumb }}" alt="{{ meal.strMeal }}" />
-
-  <h3>Category: {{ meal.strCategory }}</h3>
-  <h3>Area: {{ meal.strArea }}</h3>
-
-  <h4>Instructions:</h4>
-  <p>{{ meal.strInstructions }}</p>
-
-  <h4>Source:</h4>
-  <p><a href="{{ meal.strSource }}">{{ meal.strSource }}</a></p>
-
-  <h4>Video:</h4>
-  <p><a href="{{ meal.strYoutube }}">{{ meal.strYoutube }}</a></p> -->
-
-
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,800,900&display=swap" rel="stylesheet">
-    <!-- Code by Angela Delise
-  https://codepen.io/angeladelise/pen/YzXLdyq
-    Video Tutorial: https://www.youtube.com/watch?v=68O6eOGAGqA -->
-  
-  </head>
-  
-  <div class="container">
-
-    <nav id="row2">row2</nav>
-    <nav id="row3">row3</nav>
-    <nav id="row4">row4</nav>
-    <nav id="row5">row5</nav>
-
-    <nav id="n1">n1</nav>
-    <nav id="n2">n2</nav>
-    <nav id="n3">n3</nav>
-    <div id="b4">b4</div>
-    <div id="b5">b5</div>
-    <div id="b6">b6</div>
-    <div id="b7">b7</div>
-    <div id="b8">b8</div>
-    <div id="b9">b9</div>
-    <div id="b10">b10</div>
-    <div id="b11">b11</div>
-    <div id="b12">b12</div>
-    <div id="b13">b13</div>
-    <div id="b14">b14</div>
-    <div id="b15">b15</div>
-    <div id="b16">b16</div>
-    <div id="b17">b17</div>
-    <div id="b18">b18</div>
-    <div id="b19">b19</div>
-    <div id="b20">b20</div>
-
-    <div id="f21">f21</div>
-    <div id="f22">f22</div>
-    <div id="f23">f23</div>
-
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<div *ngFor="let meal of meals" class="container">
+  <nav><h2 id="randomMealText">Random Meal</h2></nav>
+  <div id="right"></div>
+  <div id="left"></div>
+  <div id="titleText">
+    <h2 id="mainText">Generate a meal for your next recipe</h2>
   </div>
+  <div id="imageHolder">
+    <img
+      id="mealImage"
+      src="{{ meal.strMealThumb }}"
+      alt="{{ meal.strMeal }}"
+    />
+  </div>
+  <div id="buttons">
+    <button (click)="getRandomMeal()" id="generateMealButton" class="buttonGeneral">
+      Generate Meal
+    </button>
+    <button id="watchButton" class="buttonGeneral">
+      <a href="{{ meal.strYoutube }}">Watch Video</a>
+    </button>
+  </div>
+  <div id="mealName">
+    <h2 id="mealNameText">{{ meal.strMeal }}</h2>
+  </div>
+  <div id="tags">
+    <h3 id="tagsText">Category: {{ meal.strCategory }}</h3>
+    <h3 id="tagsText">Area: {{ meal.strArea }}</h3>
+  </div>
+  <div id="insTitle"><h3 id="instructionTitleText">Instructions</h3></div>
+  <div id="insText">
+    <p id="instructionParagraphText">{{ meal.strInstructions }}</p>
+  </div>
+  <div id="visitSourceButton">
+    <button id="visitSourceButton">
+      <a href="{{ meal.strSource }}">Source</a>
+    </button>
+  </div>
+  <footer>
+    <h3 id="footerText">Powered by: The Meal DB.</h3>
+    <h3 id="footerText">All rights reserved 2023</h3>
+  </footer>
+</div>

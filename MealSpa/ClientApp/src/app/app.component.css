@@ -1,205 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-  
+html {
+  font-family: 'Rubik', sans-serif;
+}
 .container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "n1 n1 n1 n1 n1"
-      "n2 n2 n2 n2 n2"
-      "n3 n3 n3 n3 n3"
-      "b4 row2 row3 row4 row5"
-      "b5 b5 b5 b5 b5"
-      "b6 b6 b6 b6 b6"
-      "b7 b7 b7 b7 b7"
-      "b8 b8 b8 b8 b8"
-      "b9 b9 b9 b9 b9"
-      "b10 b10 b10 b10 b10"
-      "b11 b11 b11 b11 b11"
-      "b12 b12 b12 b12 b12"
-      "b13 b13 b13 b13 b13"
-      "b14 b14 b14 b14 b14"
-      "b15 b15 b15 b15 b15"
-      "b16 b16 b16 b16 b16"
-      "b17 b17 b17 b17 b17"
-      "b18 b18 b18 b18 b18"
-      "b19 b19 b19 b19 b19"
-      "b20 b20 b20 b20 b20"
-      
-      "f21 f21 f21 f21 f21"
-      "f22 f22 f22 f22 f22"
-      "f23 f23 f23 f23 f23"
-      ;
-    grid-gap: 0.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #004d40;
-    text-align: center;
-  }
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.4fr 0.8fr 0.2fr 0.7fr 0.4fr;
+  grid-template-rows: 1fr 5fr 1.5fr 2fr 1fr 
+                      1.2fr 6fr 1fr 3fr;                     
+  grid-template-areas:
+    "nav nav nav nav nav"
+    "left titleText titleText imageHolder right"
+    "left buttons buttons imageHolder right"
+    "left mealName mealName imageHolder right"
+    "left tags tags imageHolder right"
+    "left insTitle insTitle insTitle right"
+    "left insText insText insText right"
+    "left visitSourceButton visitSourceButton visitSourceButton right"
+    "left footer footer footer right"
+    ;
+  grid-gap: 0.2rem;
+  font-weight: 800;
+  font-size: 12px;
+  color: #1b1e1c;
+  text-align: left;
+  font-family: 'Rubik', sans-serif;
 
-  #row2 {
-    background: #babd12;
-    grid-area: row2;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #row3 {
-    background: #babd12;
-    grid-area: row3;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #row4 {
-    background: #babd12;
-    grid-area: row4;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #row5 {
-    background: #babd12;
-    grid-area: row5;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
+}
 
-  #n1 {
-    background: #73ffba;
-    grid-area: n1;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #n2 {
-    background: #73ffba;
-    grid-area: n2;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #n3 {
-    background: #73ffba;
-    grid-area: n3;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b4 {
-    background: #73ffba;
-    grid-area: b4;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b5 {
-    background: #73ffba;
-    grid-area: b5;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b6 {
-    background: #73ffba;
-    grid-area: b6;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b7 {
-    background: #73ffba;
-    grid-area: b7;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b8 {
-    background: #73ffba;
-    grid-area: b8;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b9 {
-    background: #73ffba;
-    grid-area: b9;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b10 {
-    background: #73ffba;
-    grid-area: b10;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b11 {
-    background: #73ffba;
-    grid-area: b11;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b12 {
-    background: #73ffba;
-    grid-area: b12;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b13 {
-    background: #73ffba;
-    grid-area: b13;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b14 {
-    background: #73ffba;
-    grid-area: b14;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b15 {
-    background: #73ffba;
-    grid-area: b15;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b16 {
-    background: #73ffba;
-    grid-area: b16;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b17 {
-    background: #73ffba;
-    grid-area: b17;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b18 {
-    background: #73ffba;
-    grid-area: b18;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b19 {
-    background: #73ffba;
-    grid-area: b19;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #b20{
-    background: #73ffba;
-    grid-area: b20;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #f21{
-    background: #73ffba;
-    grid-area: f21;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #f22{
-    background: #73ffba;
-    grid-area: f22;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  #f23{
-    background: #73ffba;
-    grid-area: f23;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
-  
+.buttonGeneral{
+  background-color: #a4a4a4; /* Green */
+  height: 2rem;
+  width: 8rem;
+  border-radius: 50px;
+}
+#mealNameText{
+  font-size: 1.6rem;
+}
+#mealImage {
+  width: 100%;
+  height: 100%;
+}
+#randomMealText{
+  font-size: 1.6rem;
+  color:white;
+}
+#mainText{
+  font-size: 3rem;
+  color:rgb(59, 59, 59);
+  font-weight:bold;
+}
+footer {
+  background: #ffffff;
+  grid-area: footer;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#visitSourceButton {
+  background: #ffffff;
+  grid-area: visitSourceButton;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#insText {
+  background: #ffffff;
+  grid-area: insText;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#insTitle {
+  background: #ffffff;
+  grid-area: insTitle;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#tags {
+  background: #ffffff;
+  grid-area: tags;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#mealName {
+  background: #ffffff;
+  grid-area: mealName;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#buttons {
+  background: #ffffff;
+  grid-area: buttons;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#imageHolder {
+  background: #ffffff;
+  grid-area: imageHolder;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#titleText {
+  background: #ffffff;
+  grid-area: titleText;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#left {
+  background: #ffffff;
+  grid-area: left;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+#right {
+  background: #ffffff;
+  grid-area: right;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+nav {
+  background: #EB8526;
+  grid-area: nav;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  font-family: 'Righteous', cursive;
+}
+

@@ -14,7 +14,11 @@ export class AppComponent {
 
   constructor(private mealService : MealService){}
 
-
+  ngOnInit(): void {
+    // Call the getRandomMeal function here
+    this.getRandomMeal();
+  }
+  
   getRandomMeal() {
     this.mealService.getRandomMeal().subscribe(
       (response) => {
