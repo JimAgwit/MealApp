@@ -10,16 +10,19 @@
 />
 <html>
   <div *ngFor="let meal of meals" class="container">
-    <div id="heroBanner">
-      <h1>Healthy<br />Delicious<br />Recipes</h1>
-    </div>
-    <div id="imageHolder">
-      <div id="mealImageContainer">
-        <img
-          id="mealImage"
-          src="{{ meal.strMealThumb }}"
-          alt="{{ meal.strMeal }}"
-        />
+    
+    <div id="bannerAndImageContainer">
+      <div id="heroBanner">
+        <h1>Healthy<br />Delicious<br />Recipes</h1>
+      </div>
+      <div id="imageHolder">
+      
+          <img
+            id="mealImage"
+            src="{{ meal.strMealThumb }}"
+            alt="{{ meal.strMeal }}"
+          />
+        
       </div>
     </div>
 
@@ -38,7 +41,7 @@
       <li>{{ meal.strCategory }}</li>
       <li>{{ meal.strArea }}</li>
     </ul>
-    <h4>Instructions</h4>
+    <h4 id="instructionsLabel">Instructions</h4>
     <p id="instructions">{{ meal.strInstructions }}</p>
 
     <a id="visitSourceLink" href="{{ meal.strSource }}">Visit Source</a>
