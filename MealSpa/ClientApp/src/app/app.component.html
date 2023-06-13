@@ -1,49 +1,49 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-<div *ngFor="let meal of meals" class="container">
-  <nav><h2 id="randomMealText">Random Meal</h2></nav>
-  <div id="right"></div>
-  <div id="left"></div>
-  <div id="navRight"></div>
-  <div id="navLeft"></div>
-  <div id="topSpace"></div>
-  <div id="titleText">
-    <h2 id="mainText">Healthy <br> Delicious <br> Recipe</h2>
-  </div>
-  <div id="imageHolder">
-    <div id="mealImageContainer"><img
-      id="mealImage"
-      src="{{ meal.strMealThumb }}"
-      alt="{{ meal.strMeal }}"/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+/>
+<html>
+  <div *ngFor="let meal of meals" class="container">
+    <div id="heroBanner">
+      <h1>Healthy<br />Delicious<br />Recipes</h1>
     </div>
-  </div>
-  <div id="buttons">
-    <button (click)="getRandomMeal()" id="newMealButton" class="buttonGeneral">
-      New Meal
-    </button>
-    <button id="watchButton" class="buttonGeneral">
-      <a href="{{ meal.strYoutube }}">Watch Video</a>
-    </button>
-  </div>
-  <div id="mealName">
+    <div id="imageHolder">
+      <div id="mealImageContainer">
+        <img
+          id="mealImage"
+          src="{{ meal.strMealThumb }}"
+          alt="{{ meal.strMeal }}"
+        />
+      </div>
+    </div>
+
+    <div id="buttonContainer">
+      <button (click)="getRandomMeal()" class="buttons" id="newMealButton">
+        New Meal
+      </button>
+      <button class="buttons" id="watchButton">
+        <i class="fas fa-play" id="iconButton" style="color: #ff8523"></i>
+        <a href="{{ meal.strYoutube }}">Watch Video</a>
+      </button>
+    </div>
+
     <h2 id="mealNameText">{{ meal.strMeal }}</h2>
-  </div>
-  <div id="tags">
-    <ul id="bulletList">
-      <li >{{ meal.strCategory }}</li>
-      <li >{{ meal.strArea }}</li>
-    </ul> 
-  </div>
-  <div id="insTitle"><h3 id="instructionTitleText">Instructions</h3></div>
-  <div id="insText">
-    <p id="instructionParagraphText">{{ meal.strInstructions }}</p>
-  </div>
-  <div id="visitSource">
-      <a href="{{ meal.strSource }}">Visit Source</a>
+    <ul id="tagsList">
+      <li>{{ meal.strCategory }}</li>
+      <li>{{ meal.strArea }}</li>
+    </ul>
+    <h4>Instructions</h4>
+    <p id="instructions">{{ meal.strInstructions }}</p>
+
+    <a id="visitSourceLink" href="{{ meal.strSource }}">Visit Source</a>
   </div>
   <footer>
-    <h3 id="footerText" class="foot">All rights reserved 2023</h3>
+    <p id="footerNote">Powered by Meal DB <br />All rights reserved</p>
   </footer>
-</div>
+</html>

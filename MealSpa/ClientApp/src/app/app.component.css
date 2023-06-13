@@ -1,260 +1,111 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 html {
-  font-family: "Rubik", sans-serif;
+  font-family: "Geologica", sans-serif;
 }
-.container {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 2fr 2fr 2.5fr 2fr;
-  grid-template-rows:
-    1fr 3fr 5fr 1.5fr 2fr 1fr
-    1.2fr 6fr 1fr;
-  grid-template-areas:
-    "navLeft nav nav navRight"
-    "left topSpace topSpace right"
-    "left titleText imageHolder right"
-    "left buttons imageHolder right"
-    "left mealName imageHolder right"
-    "left tags imageHolder right"
-    "left insTitle imageHolder right"
-    "left insText imageHolder right"
-    "left visitSource visitSource right"
-    "left footer footer right";
-  font-weight: 800;
-  font-size: 12px;
-  color: #1b1e1c;
-  text-align: left;
-  font-family: "Rubik", sans-serif;
+/* Desktop */
+@media (min-width: 1024px) {
+  #heroBanner {
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding-left: 6rem;
+    color: red;
+  }
 }
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #heroBanner {
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
 
-#bulletList{
-  list-style-type: none;
-  padding: 0;
+    color: rgb(207, 188, 17);
+  }
 }
+/* Phone */
+@media (max-width: 767px) {
+  .container {
+    padding: 1.5rem;
+  }
+  #heroBanner {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  #imageHolder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  #mealImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  #buttonContainer {
+    margin-top: 12px;
+    display: flex;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 10px 30px;
+    
+  }
+  #iconButton{
+    margin-right: 8px;
 
-#bulletList li {
-  display: inline-block;
-  margin-right: 10px;
-}
+  }
+  #newMealButton{
+    background-color: #EB8526;
+  }
+  #watchButton{
+    background-color: #dad6d2;
+    color:black
+  }
 
-#bulletList li::before {
-  content: "•";
-  margin-right: 5px;
-}
-
-.buttonGeneral {
-  align-items: center;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.85);
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 14px;
-  font-weight: 600;
-  justify-content: center;
-  margin: 0;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
-  margin-right: 10px;
-}
-
-.buttonGeneral:hover,
-.buttonGeneral:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.buttonGeneral:hover {
-  transform: translateY(-1px);
-}
-
-.buttonGeneral:active {
-  background-color: #f0f0f1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
-}
-#newMealButton {
-  background-color: #F9B20E;
-  font-weight: bold;
-}
-#watchButton {
-  background-color: #cecece;
-  font-weight: bold;
-}
-#watchButton a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-.foot {
- font-size: 0.8rem;
- text-align: center;
-font-weight: normal;
-}
-#visitSourceButton {
-  background-color: #151010;
-  font-weight: bold;
-  color:white;
-}
-#visitSourceButton a {
-  display: block;
-  width: 100%;
-  height: auto;
-  text-decoration: none;
-  color: inherit;
-}
-#instructionTitleText {
-  font-size: 0.9rem;
-  color: #EB8526;
-  
-}
-#instructionParagraphText {
-  width: 120ch;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-wrap: break-word; 
-}
-#mealNameText {
-  font-size: 1.6rem;
-  color: #EB8526;
-}
-#mealImage {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-}
-#mealImageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%; /* Set the desired width */
-  height: 100%; /* Set the desired height */
-  overflow: hidden; /* Hide any overflowing parts of the image */
-}
-
-#mealImage img {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-#randomMealText {
-  font-size: 1.6rem;
-  color: white;
-}
-#mainText {
-  font-size: 3rem;
-  color: rgb(59, 59, 59);
-  font-weight: 900;
-}
-footer {
-  background: #ffffff;
-  grid-area: footer;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#visitSource {
-  background: #ffffff;
-  grid-area: visitSource;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#insText {
-  background: #ffffff;
-  grid-area: insText;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  overflow: hidden;
-}
-#topSpace {
-  background: #ffffff;
-  grid-area: topSpace;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#navRight {
-  background: #EB8526;
-  grid-area: navRight;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#navLeft {
-  background: #EB8526;
-  grid-area: navLeft;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-
-#insTitle {
-  background: #ffffff;
-  grid-area: insTitle;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#tags {
-  background: #ffffff;
-  grid-area: tags;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#mealName {
-  background: #ffffff;
-  grid-area: mealName;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#buttons {
-  background: #ffffff;
-  grid-area: buttons;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#imageHolder {
-  background: #ffffff;
-  grid-area: imageHolder;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#titleText {
-  background: #ffffff;
-  grid-area: titleText;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#left {
-  background: #ffffff;
-  grid-area: left;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-#right {
-  background: #ffffff;
-  grid-area: right;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-nav {
-  background: #eb8526;
-  grid-area: nav;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  font-family: "Righteous", cursive;
+  #watchButton a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  #mealNameText {
+    color: #EB8526;
+  }
+  #tagsList {
+    list-style-type: none;
+    padding: 0;
+  }
+  #tagsList li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  #tagsList li::before {
+    content: "•";
+    margin-right: 5px;
+  }
+  #instructions {
+    text-align: justify;
+  }
+  #visitSourceLink{
+   color:red;
+  }
+  #footerNote{
+    text-align: center;
+    font-size: 0.7rem;
+  }
 }
